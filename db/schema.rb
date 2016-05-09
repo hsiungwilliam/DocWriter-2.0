@@ -21,22 +21,23 @@ ActiveRecord::Schema.define(version: 20160509020507) do
 
   create_table "procedures", force: :cascade do |t|
     t.text     "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "subsubcategory_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
-  create_table "sub_categories", force: :cascade do |t|
+  create_table "subcategories", force: :cascade do |t|
     t.string   "title"
     t.integer  "category_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  create_table "sub_sub_categories", force: :cascade do |t|
+  create_table "subsubcategories", force: :cascade do |t|
     t.string   "title"
-    t.integer  "sub_catergory_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.integer  "subcategory_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
 end
