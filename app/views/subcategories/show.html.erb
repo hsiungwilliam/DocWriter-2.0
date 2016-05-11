@@ -8,13 +8,17 @@
 <div class="tags">
   <div class="container">
     <div class="cards row">
-    	<% @subcategory.each do |t| %>
+    	
       <div class="card col-xs-4">
-        <h2><%= t.title %></h2>
-
+        <h2><%= @subcategory.title %></h2>
+        <% @subsubcategories.each do |sc| %>
+        <p><%= sc.title %></p>
+              <%= link_to "See More", subsubcategory_path(sc) %><br>
+              <%= link_to "Back", category_path(sc) %>
         <% end %>
+
       </div>
-      <% end %>
+     
     </div>
   </div>
 </div>

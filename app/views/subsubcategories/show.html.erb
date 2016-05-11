@@ -7,24 +7,19 @@
 
 <div class="tags">
   <div class="container">
-
     <div class="cards row">
     	
       <div class="card col-xs-4">
+        <h2><%= @subsubcategory.title %></h2>
+        <% @procedures.each do |sc| %><br>
+        <p><%= sc.content %></p>
 
-        <h2><%= @category.title %></h2>
+        <%= link_to "Back", subcategory_path(sc) %>
 
-
-        <% @subcategories.each do |sc| %>
-        <p><%= sc.title %></p>
-              <%= link_to "See More", subcategory_path(sc) %><br>
-              <%= link_to "Back", main_path() %>
         <% end %>
 
       </div>
-      
-
-
+     
     </div>
   </div>
 </div>

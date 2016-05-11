@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   get '/procedures' => 'procedures#index'
   get '/procedures/new' => 'procedures#new'
   post '/procedures' => 'procedures#create'
-  get '/categories' => 'categories#index'
+  get '/categories' => 'categories#index', as: :main
   get '/categories/:id' => 'categories#show', as: :category
   get '/subcategories/:id' => 'subcategories#show', as: :subcategory
+  get '/subsubcategories/:id' => 'subsubcategories#show', as: :subsubcategory
+  get '/procedures/:id' => 'procedures#show', as: :procedure
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

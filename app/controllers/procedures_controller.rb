@@ -17,6 +17,12 @@ class ProceduresController < ApplicationController
 		end
 	end
 
+
+	def show
+		@subsubcategory = Subsubcategory.find(params[:id])
+		@procedures = @subsubcategory.procedures
+	end
+
 	private
 		def procedure_params
 			params.require(:procedure).permit(:content)
