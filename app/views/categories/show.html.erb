@@ -19,8 +19,10 @@
         <p><%= sc.title %></p>
               <%= link_to "See More", subcategory_path(sc) %><br>
               <%= link_to "Back", main_path() %>
+              <br>
+        <%= link_to 'Add New Subcategory', newsubcategory_path(), :id=> @thisid %>
         <% end %>
-
+        
       </div>
       
 

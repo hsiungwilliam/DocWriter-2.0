@@ -3,8 +3,12 @@ Rails.application.routes.draw do
   get '/procedures' => 'procedures#index'
   get '/procedures/new' => 'procedures#new'
   post '/procedures' => 'procedures#create'
-  get '/categories' => 'categories#index', as: :main
+  get 'categories' => 'categories#index', as: :main
+  get '/categories/new' => 'categories#new'
+  post '/categories' => 'categories#create'
   get '/categories/:id' => 'categories#show', as: :category
+  get '/subcategories/new/:id' => 'subcategories#new', as: :newsubcategory
+  post '/subcategories' => 'subcategories#create'
   get '/subcategories/:id' => 'subcategories#show', as: :subcategory
   get '/subsubcategories/:id' => 'subsubcategories#show', as: :subsubcategory
   get '/procedures/:id' => 'procedures#show', as: :procedure
