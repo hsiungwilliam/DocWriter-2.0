@@ -4,6 +4,12 @@ class SubcategoriesController < ApplicationController
 		@subcategory = Subcategory.find(params[:id])
 		@subsubcategories = @subcategory.subsubcategories.all
 		@thisid = params[:id]
+
+		@previousid = params[@subcategory.category]
+		# if @subcategory[0].category_id == nil
+		# 	@subcategory[0].category_id = 1
+		# end
+		# @previousid = @subcategory[1].category_id
 	end
 
 	def new

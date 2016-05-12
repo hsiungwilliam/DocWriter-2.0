@@ -11,18 +11,23 @@
     	
       <div class="card col-xs-4">
         <h2><%= @subcategory.title %></h2>
+
+        <h1><%= @thisid %></h1>
+
         <% @subsubcategories.each do |sc| %>
         <p><%= sc.title %></p>
-              <%= link_to "See More", subsubcategory_path(sc) %><br>
+
+              <%= link_to "See More", subsubcategory_path(sc) %><br><br>
 
 
         <% end %>
 
       </div>
-
+      <br><br>
       <%= link_to "Add a new Subsubcategory", newsubsubcategory_path(), :id=> @thisid %>
       <br>
-      <%= link_to "Back", main_path() %>
+      <br>
+      <%= link_to "Back", category_path(:id => @subcategory.category_id) %>
      
     </div>
   </div>
