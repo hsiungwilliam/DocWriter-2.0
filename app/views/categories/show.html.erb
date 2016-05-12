@@ -17,16 +17,23 @@
 
         <% @subcategories.each do |sc| %>
         <p><%= sc.title %></p>
-              <%= link_to "See More", subcategory_path(sc) %><br>
-              
+              <%= link_to "See More", subcategory_path(sc) %>
+              <% if current_user && current_user.admin? %> 
               <br>
+              <%= link_to "Edit", edit_subcategory_path(sc) %>
+              <%= link_to "Delete", delete_subcategory_path(sc), method: "delete", data: { confirm: "You sure?" } %>
+
+              <% end %>
+              <br><br>
         
         <% end %>
         
       </div>
       
       <%= link_to "Back", main_path() %><br><br>
+      <% if current_user && current_user.admin? %> 
       <%= link_to 'Add New Subcategory', newsubcategory_path(), :id=> @thisid %>
+      <% end %>
 
 
     </div>

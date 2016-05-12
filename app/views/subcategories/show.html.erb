@@ -12,23 +12,30 @@
       <div class="card col-xs-4">
         <h2><%= @subcategory.title %></h2>
 
-        <h1><%= @thisid %></h1>
-
         <% @subsubcategories.each do |sc| %>
         <p><%= sc.title %></p>
 
-              <%= link_to "See More", subsubcategory_path(sc) %><br><br>
+              <%= link_to "See More", subsubcategory_path(sc) %>
+              <% if current_user && current_user.admin? %> 
+                <br>
+                <%= link_to "Edit", edit_subsubcategory_path(sc) %>
+                <%= link_to "Delete", delete_subsubcategory_path(sc), method: "delete", data: { confirm: "You sure?" } %>
+              <% end %>
+              <br><br>
 
 
         <% end %>
 
       </div>
       <br><br>
+      <% if current_user && current_user.admin? %> 
       <%= link_to "Add a new Subsubcategory", newsubsubcategory_path(), :id=> @thisid %>
       <br>
       <br>
+      <% end %>
       <%= link_to "Back", category_path(:id => @subcategory.category_id) %>
-     
+     <br><br>
+      <%= link_to "Back to Home Page", main_path() %>
     </div>
   </div>
 </div>

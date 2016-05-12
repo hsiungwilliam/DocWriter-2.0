@@ -12,10 +12,16 @@
       <div class="card col-xs-4">
         <h2><%= t.title %></h2>
         <%= link_to "Learn more", category_path(t) %>
+        <% if current_user && current_user.admin? %> 
+          <%= link_to "Edit", edit_category_path(t) %>
+          <%= link_to "Delete", delete_category_path(t), method: "delete", data: { confirm: "You sure?" } %>
+        <% end %>
       </div>
       <% end %>
       <br>
+      <% if current_user && current_user.admin? %> 
       <%= link_to 'Add New Category', "categories/new" %>
+      <% end %>
     </div>
   </div>
 </div>

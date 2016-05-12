@@ -1,4 +1,7 @@
 class SubsubcategoriesController < ApplicationController
+
+	before_action :require_user, only: [:index, :show, :edit]
+	
 	def show
 		@subsubcategory = Subsubcategory.find(params[:id])
 		@procedures = @subsubcategory.procedures
@@ -7,6 +10,19 @@ class SubsubcategoriesController < ApplicationController
 
 	def new
 		@subsubcategory = Subsubcategory.new(subcategory_id: params[:id])
+	end
+
+	def edit 
+	  @subsubcategory = Subsubcategory.find(params[:id]) 
+	end
+
+	def update 
+	  @subsubcategory = Subsubcategory.find(params[:id]) 
+	  if @subsubcategory.update_attributes(subsubcategory_params) 
+	    redirect_to(subcategory_path(:id => @subsubcategory.subcategory_id)) 
+	  else 
+	    render 'edit' 
+	  end 
 	end
 
 	def create
@@ -18,10 +34,17 @@ class SubsubcategoriesController < ApplicationController
 
 
 		if @subsubcategory.save
-			redirect_to '/categories/'
+			redirect_to(subcategory_path(:id => @subsubcategory.subcategory_id))
 		else
 			render 'new'
 		end
+	end
+
+	def destroy
+		@previd = Subsubcategory.find(params[:id])
+		Subsubcategory.find(params[:id]).destroy
+		flash[:success] = "Subsubcategory deleted"
+		redirect_to(subcategory_path(@previd.subcategory_id))
 	end
 
 	private

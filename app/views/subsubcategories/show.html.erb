@@ -14,7 +14,12 @@
         
         <% @procedures.each do |sc| %><br>
         <p><%= sc.content %></p>
+        <% if current_user && current_user.admin? %> 
         <br>
+        <%= link_to "Edit", edit_procedure_path(sc) %>
+        <%= link_to "Delete", delete_procedure_path(sc), method: "delete", data: { confirm: "You sure?" } %>
+        <% end %>
+        <br><br>
         
 
         <% end %>
@@ -22,7 +27,11 @@
       </div>
       <br><br>
       <%= link_to "Back", subcategory_path(:id => @subsubcategory.subcategory_id) %><br><br>
+      <% if current_user && current_user.admin? %> 
       <%= link_to 'Add New Procedure', newprocedure_path(), :id=> @thisid %>
+      <% end %>
+      <br><br>
+      <%= link_to "Back to Home Page", main_path() %>
      
     </div>
   </div>

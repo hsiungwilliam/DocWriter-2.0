@@ -1,7 +1,15 @@
 class CategoriesController < ApplicationController
 	
+	before_action :require_user, only: [:show, :edit, :update, :destroy]
+  	before_action :require_editor, only: [:show, :edit]
+  	before_action :require_admin, only: [:destroy]
+	
 	def index
 		@categories = Category.all
+	end
+
+	def edit
+		@category = Category.find(params[:id])
 	end
 
 	def new
@@ -20,6 +28,21 @@ class CategoriesController < ApplicationController
 		else
 			render 'new'
 		end
+	end
+
+	def update 
+	  @category = Category.find(params[:id]) 
+	  if @category.update_attributes(category_params) 
+	    redirect_to(main_path()) 
+	  else 
+	    render 'edit' 
+	  end 
+	end
+
+	def destroy
+		Category.find(params[:id]).destroy
+		flash[:success] = "Category deleted"
+		redirect_to(main_path())
 	end
 
 	private

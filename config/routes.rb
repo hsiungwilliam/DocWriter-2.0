@@ -20,6 +20,41 @@ Rails.application.routes.draw do
   get '/procedures/new/:id' => 'procedures#new', as: :newprocedure
   post '/procedures/' => 'procedures#create'
   get '/procedures/:id' => 'procedures#show', as: :procedure
+
+  #Editing
+
+  get '/categories/:id/edit' => 'categories#edit', as: :edit_category
+  patch '/categories/:id' => 'categories#update'
+
+  get '/subcategories/:id/edit' => 'subcategories#edit', as: :edit_subcategory 
+  patch '/subcategories/:id' => 'subcategories#update'
+
+  get '/subsubcategories/:id/edit' => 'subsubcategories#edit', as: :edit_subsubcategory 
+  patch '/subsubcategories/:id' => 'subsubcategories#update'
+
+  get '/procedures/:id/edit' => 'procedures#edit', as: :edit_procedure
+  patch '/procedures/:id' => 'procedures#update'
+
+  #Login Functionality
+  get 'signup'  => 'users#new' 
+  resources :users
+
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+
+  delete 'logout' => 'sessions#destroy', as: :logout
+
+  #Deleting
+  delete 'categories/:id' => 'categories#destroy', as: :delete_category
+
+  delete 'subcategories/:id' => 'subcategories#destroy', as: :delete_subcategory
+
+  delete 'subsubcategories/:id' => 'subsubcategories#destroy', as: :delete_subsubcategory
+
+  delete 'procedures/:id' => 'procedures#destroy', as: :delete_procedure
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
