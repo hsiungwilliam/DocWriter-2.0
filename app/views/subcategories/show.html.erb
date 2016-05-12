@@ -14,10 +14,15 @@
         <% @subsubcategories.each do |sc| %>
         <p><%= sc.title %></p>
               <%= link_to "See More", subsubcategory_path(sc) %><br>
-              <%= link_to "Back", category_path(sc) %>
+
+
         <% end %>
 
       </div>
+
+      <%= link_to "Add a new Subsubcategory", newsubsubcategory_path(), :id=> @thisid %>
+      <br>
+      <%= link_to "Back", main_path() %>
      
     </div>
   </div>

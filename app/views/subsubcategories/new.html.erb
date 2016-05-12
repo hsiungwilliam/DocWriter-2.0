@@ -9,11 +9,11 @@
   <div class="container">
     
     <!-- Your code here -->
-   <%= form_for(@subcategory) do |f| %>  
+   <%= form_for(@subsubcategory) do |f| %>  
       <div class="field"> 
-        <%= f.label :subcategory %><br> 
+        <%= f.label :subsubcategory %><br> 
         <%= f.text_area :title %>
-        <%= f.text_area :category_id %>
+        <%= f.text_area :subcategory_id %>
       </div> 
       <div class="actions"> 
         <%= f.submit "Create" %> 

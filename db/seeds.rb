@@ -11,6 +11,7 @@
 # Procedure.create(title: "love")
 c2 = Category.create(title: "Belle & Sebastian")
 s2 = Subcategory.create(title: "Dear Catastrophe Waitress", category_id: c2.id)
+s4 = Subcategory.create(title: "Tigermilk", category_id: c2.id)
 ss2 = Subsubcategory.create(title: "If She Wants Me", subcategory_id: s2.id)
 Procedure.create(content: "If I could do one near perfect thing I'd be happy", subsubcategory_id: ss2.id)
 c3 = Category.create(title: "Voxtrot")
