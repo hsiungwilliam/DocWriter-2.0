@@ -35,6 +35,10 @@ Rails.application.routes.draw do
   get '/procedures/:id/edit' => 'procedures#edit', as: :edit_procedure
   patch '/procedures/:id' => 'procedures#update'
 
+  patch '/procedures/note/:id' => 'procedures#updatenote'
+
+  patch '/procedures/updatenote/:id' => 'procedures#addprocedure', as: :note
+
   #Login Functionality
   get 'signup'  => 'users#new' 
   resources :users
@@ -53,6 +57,11 @@ Rails.application.routes.draw do
 
   delete 'procedures/:id' => 'procedures#destroy', as: :delete_procedure
 
+  #Write to File
+  post '/ajax/sum' => 'categories#ajax_sum'
+
+
+ 
 
 
   # The priority is based upon order of creation: first created -> highest priority.

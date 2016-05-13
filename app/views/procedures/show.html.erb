@@ -10,11 +10,23 @@
     <div class="cards row">
     	
       <div class="card col-xs-4">
-        <h2><%= @subsubcategory.title %></h2>
-        <% @procedures.each do |sc| %>
-        <p><%= sc.title %></p>
+        <h2>Add a procedure</h2>
+
+        <p><%= @procedure.content %></p>
+
+
+        <br><br>
+        <%= form_for(@note) do |f| %>
+        <%= f.submit "Add to Doc", :class => "btn" %>
+        <%= f.text_field :last_name, :placeholder => "Last Name" %>
+        <%= f.text_field :first_name, :placeholder => "First Name" %>
+        <%= f.text_area :technique, :placeholder => "Put your notes here here" %>
 
         <% end %>
+        <br><br>
+        <%= link_to "Back", subsubcategory_path(:id => @procedure.subsubcategory_id) %><br><br>
+        <br><br>
+      <%= link_to "Back to Home Page", main_path() %>
 
       </div>
      

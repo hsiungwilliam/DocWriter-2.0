@@ -24,3 +24,5 @@ mateo = User.create(first_name: 'Mateo', last_name: 'Lazo', email: 'mateo@email.
 julian = User.create(first_name: 'Julian', last_name: 'Jones', email: 'julian@email.com', password: 'Julian1', password_confirmation: 'Julian1')
 freida = User.create(first_name: 'Freida', last_name: 'Gray', email: 'freida@email.com', password: 'Freida1', password_confirmation: 'Freida1', role: 'admin')
 dad = User.create(first_name: 'Edwin', last_name: 'Hsiung', email: 'edddspa@gmail.com', password: '1', password_confirmation: '1', role: 'admin')
+
+emptyDoc = Note.create(technique: '', id_first: 'a', first_name: '', last_name: '')

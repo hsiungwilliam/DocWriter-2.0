@@ -14,6 +14,7 @@
         
         <% @procedures.each do |sc| %><br>
         <p><%= sc.content %></p>
+        <%= link_to "Add to Doc", procedure_path(sc) %>
         <% if current_user && current_user.admin? %> 
         <br>
         <%= link_to "Edit", edit_procedure_path(sc) %>

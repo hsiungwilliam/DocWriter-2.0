@@ -1,0 +1,33 @@
+When you add, go back to original level Y
+Add update Y
+When you update, go back to original level Y
+
+Add delete Y
+go back to original level Y
+Are you sure? Y
+
+Add text doc Y
+Add text to the document Y
+(go back to original level) Y
+add patient name Y
+
+login functionality Y
+edit the template temporarily
+
+
+add printing functionality Y
+
+delete text doc in the end (clear db)
+
+
+
+add number place holders
+
+
+
+
+
+
+
+change password?
+cascade delete all the after

@@ -22,6 +22,30 @@
       <% if current_user && current_user.admin? %> 
       <%= link_to 'Add New Category', "categories/new" %>
       <% end %>
+
+      <br><br>
+      <%= form_for(@note) do |f| %>
+
+      <%= f.text_field :last_name, :placeholder => "Last Name" %>
+      <%= f.text_field :first_name, :placeholder => "First Name" %>
+      <%= f.text_area :technique, :placeholder => "Put your notes here here", :class => "main_doc" %>
+      <%= f.submit "Update", :class => "btn" %>
+
+      <%= button_to 'Write Write', '#', :onclick => 'sum_fn()' %>
+      <%= javascript_tag do %>
+          function sum_fn() {
+              /* Assuming you have jQuery */
+              $.post('/ajax/sum.json', {
+                   num1: 100,
+                   num2: 50
+              }, function(data) {
+                   var output = data.result;
+                   /* output should be 150 if successful */
+              });
+          }
+      <% end %>
+
+    <% end %> 
     </div>
   </div>
 </div>
