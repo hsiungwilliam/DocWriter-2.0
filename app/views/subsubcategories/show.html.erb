@@ -13,7 +13,8 @@
         <h2><%= @subsubcategory.title %></h2>
         
         <% @procedures.each do |sc| %><br>
-        <p><%= sc.content %></p>
+        <%= sc.content %>
+        <br>
         <%= link_to "Add to Doc", procedure_path(sc) %>
         <% if current_user && current_user.admin? %> 
         <br>

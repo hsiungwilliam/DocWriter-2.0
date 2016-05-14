@@ -70,7 +70,7 @@ class CategoriesController < ApplicationController
 
 	def writetofile
 		@note = Note.find_by(id: '1')
-		@file_data = @note.last_name + ', ' + @note.first_name + "\n\n" + @note.technique
+		@file_data = @note.last_name + ', ' + @note.first_name + "\n\n\n" + @note.technique
 		@file_name = @note.last_name + ', ' + @note.first_name
 		p @file_data
 		p @file_name
@@ -92,7 +92,7 @@ class CategoriesController < ApplicationController
 		File.write('./Notes/' + @file_name + ".txt", @file_data)
 		flash[:success] = @file_name + ' was saved'
 
-		# send_data('./Notes/file2.txt', options = {:filename => @file_name, :type => 'text', :x_sendfile => true})
+		send_file('/Notes/' + @file_name + '.txt', options = {:filename => @file_name, :type => 'txt', :x_sendfile => true})
     end
 
 

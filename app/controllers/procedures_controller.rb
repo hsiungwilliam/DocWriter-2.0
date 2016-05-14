@@ -63,7 +63,7 @@ class ProceduresController < ApplicationController
 		@procedure = Procedure.find(params[:id])
 		@note = Note.find_by(id: '1')
 
-		@note.technique = @note.technique + "\n" + @procedure.content
+		@note.technique = @note.technique + "\n\n" + @procedure.content
 
 	end
 

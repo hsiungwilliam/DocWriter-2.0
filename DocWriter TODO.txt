@@ -16,7 +16,7 @@ edit the template temporarily
 
 
 add printing functionality Y
-
+d
 delete text doc in the end (clear db)
 
 

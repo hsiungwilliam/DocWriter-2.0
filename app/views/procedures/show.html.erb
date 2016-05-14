@@ -12,7 +12,10 @@
       <div class="card col-xs-4">
         <h2>Add a procedure</h2>
 
-        <p><%= @procedure.content %></p>
+        <%= @procedure.content %>
+<!--         <%= form_for(@procedure) do |f| %>
+        <%= f.text_area :content %>
+        <% end %> -->
 
 
         <br><br>
