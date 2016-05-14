@@ -19,6 +19,8 @@ add printing functionality Y
 d
 delete text doc in the end (clear db)
 
+Cannot change patient file after 72 hours
+Addendums
 
 
 add number place holders
