@@ -91,7 +91,7 @@ I prepared # [ ] with a # 557 burr and # 4 round burr. I placed CaOH liner and v
 
 [ ] (carbocaine 3% without epinephrine)
 
-[ ] (septocaine 4% with 1 :100,000 epinephrine)", subsubcategory_id: ss1.id)
+[ ] (septocaine 4% with 1 :100,000 epinephrine)", subsubcategory_id: ss18.id)
 
 		ss19 = Subsubcategory.create(title: "Two Surfaces", subcategory_id: s8.id)
 		ss20 = Subsubcategory.create(title: "Three Surfaces", subcategory_id: s8.id)
